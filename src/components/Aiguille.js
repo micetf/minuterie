@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 function Aiguille({ time }) {
     const s = (time % 60) * 6;
 

@@ -1,7 +1,8 @@
-$dim: calc(min(350px, 80vw));
-$dim10: calc(min(350px, 80vw) / 10);
-$dim20: calc(min(350px, 80vw) / 20);
-$dimMoins15: calc(-1 * min(350px, 80vw) / 14);
+$min: min(300px, 80vw);
+$dim: calc($min);
+$dim10: calc($min / 10);
+$dim20: calc($min / 20);
+$dimMoins15: calc(-1 * $min / 14);
 
 body {
     background-color: #19bec0;
@@ -12,6 +13,7 @@ body {
 .minuterie-container {
     width: $dim;
     padding: $dim10;
+    padding-bottom: 0.5rem;
     margin: auto;
     border-radius: 2%;
     background: radial-gradient(at 50% 50%, #113f59, #003f59);
@@ -129,34 +131,46 @@ body {
 
     .parametres {
         position: relative;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
         margin: 3.6rem 0 0 0;
         text-align: center;
-
-        label {
-            font-size: 1.3em;
+        
+        .input {
+            display:flex;
+            flex-direction: row;
+            font-size:1.3rem;
             color: #f3edd3;
+            justify-content: center;
+            input.duree {
+                 font-size:1.3rem;
+                 text-align: center;
+                 background-color: #f3edd3;
+                 color: #113f59;
+                 border: 0;
+                 border-radius: 0.5rem;
+                 width:6rem;
+                 margin-right: 0.5rem;
+             }
         }
-
-        input.duree {
-            text-align: center;
-            background-color: #f3edd3;
-            color: #113f59;
-            font-size: 1.3em;
-            border: 0;
-            border-radius: 0.35rem;
-            max-width: 30%;
-        }
-
-        button.start {
-            background: radial-gradient(
-                circle at bottom center,
-                #f3edd3,
-                #d54f58
-            );
-            font-size: 1.3em;
-            color: #113f59;
-            font-weight: bold;
-            cursor: pointer;
+        .btn {
+            display:flex;
+            justify-content:space-around;
+            margin-top:0.5rem;
+            width:100%;
+            button {
+                font-size:1.3rem;
+                width:40%;
+                background: radial-gradient(
+                    circle at bottom center,
+                    #f3edd3,
+                    #d54f58
+                );
+                color: #113f59;
+                border-radius: 1rem;
+                cursor: pointer;
+            }
         }
     }
 

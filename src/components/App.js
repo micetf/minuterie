@@ -6,9 +6,9 @@ import Parametres from "./Parametres";
 import Minuterie from "./Minuterie";
 import Audio from "./Audio";
 
-function App() {
-    const [time, setTime] = useState(300);
-    const [duree, setDuree] = useState(5);
+function App({ dureeInitiale }) {
+    const [time, setTime] = useState(dureeInitiale * 60);
+    const [duree, setDuree] = useState(dureeInitiale);
     const [isActive, setIsActive] = useState(false);
     const [isPause, setIsPause] = useState(false);
 

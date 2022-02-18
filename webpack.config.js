@@ -8,7 +8,7 @@ module.exports = {
     mode: mode,
     entry: "./src/index.js",
     output: {
-        filename: "main.js",
+        filename: "js/main.js",
         path: path.resolve(__dirname, "dist"),
     },
     module: {
@@ -43,14 +43,19 @@ module.exports = {
                 },
             },
             {
-                test: /\.(ogg|mp3|wav|mpe?g)$/i,
-                use: "file-loader",
+                test: /\.(ogg|mp3)$/i,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        outputPath: "audio",
+                    },
+                },
             },
         ],
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({ filename: "css/[name].css" }),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
         }),
